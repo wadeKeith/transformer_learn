@@ -14,17 +14,17 @@ min_cnt = 0
 # Maximum number of words in a sentence.
 maxlen = 50
 
-source_train = 'dldemos/Transformer/data/cn.txt'
-target_train = 'dldemos/Transformer/data/en.txt'
-source_test = 'dldemos/Transformer/data/cn.test.txt'
-target_test = 'dldemos/Transformer/data/en.test.txt'
+source_train = 'data/cn.txt'
+target_train = 'data/en.txt'
+source_test = 'data/cn.test.txt'
+target_test = 'data/en.test.txt'
 
 
 def load_vocab(language):
     assert language in ['cn', 'en']
     vocab = [
         line.split()[0] for line in codecs.open(
-            'dldemos/Transformer/data/{}.txt.vocab.tsv'.format(language), 'r',
+            'data/{}.txt.vocab.tsv'.format(language), 'r',
             'utf-8').read().splitlines() if int(line.split()[1]) >= min_cnt
     ]
     word2idx = {word: idx for idx, word in enumerate(vocab)}
